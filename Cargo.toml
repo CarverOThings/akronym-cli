@@ -1,0 +1,9 @@
+[package]
+name = "akronym"
+version = "0.0.1"
+authors = ["Ronnie Reel<adahywoodcraft@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+rusqlite = "0.28.0"
+# Crate for making TUI's crossterm = "0.26.1"
