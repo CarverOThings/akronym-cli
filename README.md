@@ -1,2 +1,2 @@
 # akronym-cli
-Akronym is a Rust command-line tool for managing a dictionary of IT/Technology definitions.
+Akronym is a Rust command-line tool for managing a dictionary of IT/Technology definitions. It allows users to input new definitions and query existing definitions using acronyms. The program uses the rusqlite library for database interaction and is designed with a simple and intuitive user interface.
