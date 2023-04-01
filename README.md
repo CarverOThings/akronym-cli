@@ -9,6 +9,6 @@ Planned Features:
   - Simple CLI usage 
   - akrym [OPTIONS] <ARGUMENT>
     -Ex: $ akrym -r IT 
-         $ IT - Informaion Technology, is the use of computers to create, process, store, retrieve and exchange all kinds of data and information. IT forms part of information and communications technology (ICT). An information technology system (IT system) is generally an information system, a communications system, or, more specifically speaking, a computer system — including all hardware, software, and peripheral equipment — operated by a limited group of IT users. 
+       - $ IT - Informaion Technology, is the use of computers to create, process, store, retrieve and exchange all kinds of data and information. IT forms part of information and communications technology (ICT). An information technology system (IT system) is generally an information system, a communications system, or, more specifically speaking, a computer system — including all hardware, software, and peripheral equipment — operated by a limited group of IT users. 
   - Query an acronym, return definition
   - Insert acronym
