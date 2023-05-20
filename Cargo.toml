@@ -6,4 +6,5 @@ edition = "2021"
 
 [dependencies]
 rusqlite = "0.28.0"
+serde_json = "1.0.96"
 # Crate for making TUI's crossterm = "0.26.1"
