@@ -1,9 +1,10 @@
 
 pub mod akronym;
 
-use db::conn;
+use db::conn::connect;
 
-pub fn add(conn, &acronym, &def) -> Result<()> {
-    let conn = conn(); 
-    
+
+pub fn get_input( &acronym ) {
+    println("Definition for { }: ", &acronym);
 }
+
