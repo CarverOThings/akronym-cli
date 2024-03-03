@@ -1,7 +1,8 @@
-/// Akronym Command Line Interface. A conveinent way to store and query acronyms.
+/// Akronym Command Line Interface. A convenient way to store and query acronyms.
 // December 2023, Ronnie Reel @ adahywoodcraft@gmail.com
 
-use clap::{Parser, Subcommand, };
+mod lib;
+use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
 #[command(name = "akrym")]
@@ -22,7 +23,7 @@ enum Commands {
     },
 
     //Prints a given acronym
-    // Set behavior to ask if user wants to add a acronym if not found
+    // Set behavior to ask if user wants to add an acronym if not found
     Search {
         acronym: String,
     },
@@ -36,12 +37,14 @@ enum Commands {
 
 
 fn main() {
-   let args = Cli::parse(); 
+   let args = Cli::parse();
    match args.command {
         
        //insert a definition into the database via sqlite
        Commands::Add { acronym } => {
-           println!("Added acronym {:#?} into the library.", acronym );
+            if let Err(e) = lib::add() {
+            println!("Error adding acronym: {})", e);
+           }
        }
 
        //query an acronym from the sqlite database

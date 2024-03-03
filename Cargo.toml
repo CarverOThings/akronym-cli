@@ -6,6 +6,6 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anyhow = "1.0.75"
-clap = { version = "4.4.11", features = ["derive"] }
-rusqlite = "0.29.0"
+clap = { version = "4.5.1", features = ["derive"] }
+dotenvy = "0.15.7"
+rusqlite = "0.31.0"
