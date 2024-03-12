@@ -1,18 +1,18 @@
 //Schema: CREATE TABLE definitions(id INTEGER PRIMARY KEY, acronym TEXT, name TEXT, definition TEXT);
 
-use rusqlite::{Connection, Result, Error};
+use rusqlite::{Connection, Error, Result, Row};
 use std::io;
 
 pub fn open_db() -> Result<Connection, Error> {
-//Define the relative path and establish the connection to the database
+    //Define the relative path and establish the connection to the database
 
-    const DB_PATH: &str = "../db/akronym.db";
+    const DB_PATH: &str = "db/akronym.db";
 
     let conn = Connection::open(DB_PATH);
     return conn;
 }
 
-pub fn add(acronym: String, conn: rusqlite::Result<Connection>) -> rusqlite::Result<()> {
+pub fn add(acronym: String) -> Result<()> {
     println!("You are adding an acronym");
 
     // Get the full name of the acronym from the user
@@ -24,8 +24,9 @@ pub fn add(acronym: String, conn: rusqlite::Result<Connection>) -> rusqlite::Res
     let definition = read_input(prompt);
 
     // Insert the data into the database
+    let conn = open_db();
     conn?.execute(
-        "INSERT INTO acronym (acronym, name, definition) VALUES (?1, ?2, ?3)",
+        "INSERT INTO definitions (acronym, name, definition) VALUES (?1, ?2, ?3)",
         rusqlite::params![acronym, full_name, definition],
     )?;
 
@@ -33,13 +34,24 @@ pub fn add(acronym: String, conn: rusqlite::Result<Connection>) -> rusqlite::Res
     Ok(())
 }
 
-pub fn delete<OK>() -> rusqlite::Result<()> {
-    // TODO
+pub fn delete(acronym: String) -> Result<()> {
+    println!("Deleting an acronym entry!");
+    println!("Deleting acronym: {}", acronym);
+
+    /// Confirmation to delete.
+    // Connect to Sqlite Database and Execute the operation.
+    let conn = open_db();
+    conn?.execute(
+        "DELETE FROM definitions WHERE acronym VALUES (?1)",
+        rusqlite::params![acronym],
+    )?;
+
     Ok(())
 }
 
-pub fn search<OK>() -> rusqlite::Result<()> {
-    // TODO
+pub fn search(acronym: String) -> Result<()> {
+    let conn = open_db();
+
     Ok(())
 }
 
